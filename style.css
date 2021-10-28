@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* Universal Selector */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Styling the Body */
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    /* The Gradient on the Body */
+    background-image: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
+    /* Using Flexbox to center Everything */
+    display: flex;
+    /* Right away it will put it in a row which is horizontal to change this use flex direction */
+    flex-direction: column;
+    /* Changing it to column will change it from horizontal to vertical and we can align with align items: center */
+    align-items: center;
+    /* This will put everything to the center */
+    justify-content: center;
+}
+
+
+/* That's all for the body */
+
+
+/* Music Container */
+
+.music-container {
+    background-color: #fff;
+    border-radius: 15px;
+    /* Let's give it box shadow with offset 0 20px and then the blur 20px 0 and the color will be rgba(252 red, 169, 169, 0.6 for the alpha value) */
+    box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+    /* Lets put everything on a row */
+    display: flex;
+    /* Let's add padding  20px top 30px bottom*/
+    padding: 20px 30px;
+    /* We are going to position it relative because we will position the music info absolute */
+    position: relative;
+    /* For the margin let's do 100px top and bottom 0 left and right */
+    margin: 100px 0;
+    z-index: 10;
+}
+
+
+/* Music-Container Done */
+
+
+/* Image-Container */
+
+.img-container {
+    /* We have to set the position to relative because the image is going to be absolute within it */
+    position: relative;
+    width: 110px;
+}
+
+
+/* Let's create a little circle inside the image container to make it look like a record  using the after pseudo selector*/
+
+.img-container::after {
+    /* Note: whenever we use before or after pseudo selector we need to use content property we are going to set it as empty here because we are just using it as a ghost element */
+    content: '';
+    background-color: #fff;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    border-radius: 50%;
+    /* Let's make it come to the middle because it is not in the middle because it is following the edge */
+    /* This is on the X and Y axis */
+    transform: translate(-50%, -50%);
+}
+
+
+/* Img-container Image now */
+
+.img-container img {
+    /* Setting the width to inherit will set the width to 110px from its container */
+    width: inherit;
+    height: 110px;
+    /* Border radius to give us a rounded image */
+    border-radius: 50%;
+    object-fit: cover;
+    /* Position Absolute within the container */
+    /* Note it is when the mother container(img-container) is position relative that we can however set the position of what we want to position to be absolute and be moved to any area in the mother container */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* Let's Go ahead and do the Animation for the image to rotate */
+    /* Name of animation is rotate */
+    animation: rotate 3s linear infinite;
+    /* This is to pause the Animation until the song is played */
+    animation-play-state: paused;
+}
+
+
+/* Now we are going to put it that if the image has a play class on it then it should set the animation play-state to running */
+
+.music-container.play .img-container img {
+    /* animation-play-state: running; */
+}
+
+
+/* Creating the Animation rotate*/
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Done with the Animation*/
+
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+
+/* Styling the Action Btn */
+
+.action-btn {
+    background-color: #fff;
+    /* Getting Raid of all the border */
+    border: 0;
+    color: #dfdbdf;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    /* Margin top and bottom 0 left and right 20px */
+    margin: 0 20px;
+}
+
+
+/* Styling the action-btn with the big class */
+
+.action-btn-big {
+    color: #cdc2d0;
+    font-size: 30px;
+}
+
+
+/* Let's remove outline when the button is clicked */
+
+.action-btn:focus {
+    outline: 0;
+}
+
+
+/* Music info Styling */
+
+.music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Let's add border-radius to the music-info 15px top right, 15px top left and 0 0 on the bottom */
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    /* For the padding we do top 10px bottom 10px right 10px left 150px */
+    padding: 10px 10px 10px 150px;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+
+/* Changing the Opacity back to 1 when the music container has a play class on it and adding the transition to show */
+
+.music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+
+/* Music Title */
+
+.music-info h4 {
+    margin: 0;
+}
+
+
+/* Let's proceed to the Progress Classes */
+
+.progress-container {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #fe8daa;
+    border-radius: 5px;
+    height: 100%;
+    /* The width will be set to 0 by default but let's set it to 50% for now*/
+    width: 0%;
+    transition: width 0.1s linear;
+}
