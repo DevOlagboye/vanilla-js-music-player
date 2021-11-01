@@ -38,3 +38,32 @@ let loadSong = (song) => {
 
 //Let's Load the songs into the DOM
 loadSong(songs[songIndex]);
+
+//Event Listeners
+
+//Creating the playSong function
+
+let playSong = () => {
+    musicContainer.classList.add("play");
+    playBtn.querySelector("i.fas").classList.remove("fa-play");
+    playBtn.querySelector("i.fas").classList.add("fa-pause");
+};
+
+//Creating the pauseSong Function
+
+let pauseSong = () => {
+    musicContainer.classList.remove("play");
+    playBtn.querySelector("i.fas").classList.remove("fa-pause");
+    playBtn.querySelector("i.fas").classList.add("fa-play");
+};
+
+//Creating the Pause and Play Toggle
+playBtn.addEventListener("click", () => {
+    const isPlaying = musicContainer.classList.contains("play");
+    //if it is playing
+    if (isPlaying) {
+        pauseSong();
+    } else {
+        playSong();
+    }
+});
