@@ -103,7 +103,7 @@ body {
 /* Now we are going to put it that if the image has a play class on it then it should set the animation play-state to running */
 
 .music-container.play .img-container img {
-    /* animation-play-state: running; */
+    animation-play-state: running;
 }
 
 
@@ -116,6 +116,22 @@ body {
     to {
         transform: rotate(360deg);
     }
+}
+
+.input-div {
+    position: relative;
+}
+
+.input-div input {
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+.input-div i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }
 
 
