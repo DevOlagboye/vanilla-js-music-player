@@ -7,5 +7,6 @@ Finished the Styling of the Index Page now, will work on some part of the Javasc
 
 Successfully Loaded the songs into the DOM will proceed to adding some Event Listeners
 
+Project Done now
 
-Couldn't Make any progress today.
+Will Be listing all New Discoveries made Here.
