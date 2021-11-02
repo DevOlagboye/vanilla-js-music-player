@@ -134,6 +134,16 @@ body {
     cursor: pointer;
 }
 
+#menu-toggle {
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#menu-toggle i {
+    font-size: 19px;
+}
+
 
 /* Done with the Animation*/
 
