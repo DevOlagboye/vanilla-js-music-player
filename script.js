@@ -67,3 +67,54 @@ playBtn.addEventListener("click", () => {
         playSong();
     }
 });
+
+let inputDiv = document.querySelector("#inputdiv");
+let input = document.querySelector("#input");
+let eye = document.querySelector("#eye");
+
+let hideEye = () => {
+    inputDiv.classList.remove("clicked");
+    eye.classList.add("fa-eye");
+    eye.classList.remove("fa-eye-slash");
+    input.setAttribute("type", "password");
+};
+
+let showEye = () => {
+    inputDiv.classList.add("clicked");
+    eye.classList.add("fa-eye-slash");
+    eye.classList.remove("fa-eye");
+    input.setAttribute("type", "text");
+};
+
+eye.addEventListener("click", () => {
+    const isClicked = inputDiv.classList.contains("clicked");
+    if (isClicked) {
+        hideEye();
+    } else {
+        showEye();
+    }
+});
+
+const btnT = document.querySelector("#menu-toggle");
+const iconT = document.querySelector("#bars");
+
+let hideT = () => {
+    btnT.classList.add("clicked");
+    iconT.classList.add("fa-times");
+    iconT.classList.remove("fa-bars");
+};
+
+let showT = () => {
+    btnT.classList.remove("clicked");
+    iconT.classList.add("fa-bars");
+    iconT.classList.remove("fa-times");
+};
+
+iconT.addEventListener("click", () => {
+    const tClicked = btnT.classList.contains("clicked");
+    if (tClicked) {
+        showT();
+    } else {
+        hideT();
+    }
+});
