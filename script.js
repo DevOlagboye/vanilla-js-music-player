@@ -47,8 +47,9 @@ let loadSong = (song) => {
     title.innerText = song;
     audio.src = `music/${song}.mp3`;
     cover.src = `images/${song}.jpg`;
+    let weblogo = document.querySelector("#weblogo");
+    weblogo.setAttribute("href", `images/${song}.jpg`);
 };
-
 //Let's Load the songs into the DOM
 loadSong(songs[songIndex]);
 
