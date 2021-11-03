@@ -7,6 +7,8 @@ const playBtn = document.querySelector("#play");
 const prevBtn = document.querySelector("#prev");
 //NextBtn
 const nextBtn = document.querySelector("#next");
+//RandomBtn
+const randomBtn = document.querySelector("#random");
 //Audio
 const audio = document.querySelector("#audio");
 //Progress
@@ -134,55 +136,64 @@ progressContainer.addEventListener("click", setProgress);
 //Since we already have a nextSong function created which is to play the next song we can easily add that
 audio.addEventListener("ended", nextSong);
 
+let randomFunc = () => {
+    let randomNumber = Math.floor(Math.random() * songs.length);
+    //console.log(randomNumber);
+    songIndex = randomNumber;
+    loadSong(songs[songIndex]);
+    playSong();
+};
+randomBtn.addEventListener("click", randomFunc);
+
 //Doing Some Testings with Toggle Learnt
 
-let inputDiv = document.querySelector("#inputdiv");
-let input = document.querySelector("#input");
-let eye = document.querySelector("#eye");
+// let inputDiv = document.querySelector("#inputdiv");
+// let input = document.querySelector("#input");
+// let eye = document.querySelector("#eye");
 
-let hideEye = () => {
-    inputDiv.classList.remove("clicked");
-    eye.classList.add("fa-eye");
-    eye.classList.remove("fa-eye-slash");
-    input.setAttribute("type", "password");
-};
+// let hideEye = () => {
+//     inputDiv.classList.remove("clicked");
+//     eye.classList.add("fa-eye");
+//     eye.classList.remove("fa-eye-slash");
+//     input.setAttribute("type", "password");
+// };
 
-let showEye = () => {
-    inputDiv.classList.add("clicked");
-    eye.classList.add("fa-eye-slash");
-    eye.classList.remove("fa-eye");
-    input.setAttribute("type", "text");
-};
+// let showEye = () => {
+//     inputDiv.classList.add("clicked");
+//     eye.classList.add("fa-eye-slash");
+//     eye.classList.remove("fa-eye");
+//     input.setAttribute("type", "text");
+// };
 
-eye.addEventListener("click", () => {
-    const isClicked = inputDiv.classList.contains("clicked");
-    if (isClicked) {
-        hideEye();
-    } else {
-        showEye();
-    }
-});
+// eye.addEventListener("click", () => {
+//     const isClicked = inputDiv.classList.contains("clicked");
+//     if (isClicked) {
+//         hideEye();
+//     } else {
+//         showEye();
+//     }
+// });
 
-const btnT = document.querySelector("#menu-toggle");
-const iconT = document.querySelector("#bars");
+// const btnT = document.querySelector("#menu-toggle");
+// const iconT = document.querySelector("#bars");
 
-let hideT = () => {
-    btnT.classList.add("clicked");
-    iconT.classList.add("fa-times");
-    iconT.classList.remove("fa-bars");
-};
+// let hideT = () => {
+//     btnT.classList.add("clicked");
+//     iconT.classList.add("fa-times");
+//     iconT.classList.remove("fa-bars");
+// };
 
-let showT = () => {
-    btnT.classList.remove("clicked");
-    iconT.classList.add("fa-bars");
-    iconT.classList.remove("fa-times");
-};
+// let showT = () => {
+//     btnT.classList.remove("clicked");
+//     iconT.classList.add("fa-bars");
+//     iconT.classList.remove("fa-times");
+// };
 
-iconT.addEventListener("click", () => {
-    const tClicked = btnT.classList.contains("clicked");
-    if (tClicked) {
-        showT();
-    } else {
-        hideT();
-    }
-});
+// iconT.addEventListener("click", () => {
+//     const tClicked = btnT.classList.contains("clicked");
+//     if (tClicked) {
+//         showT();
+//     } else {
+//         hideT();
+//     }
+// });
