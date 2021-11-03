@@ -10,3 +10,5 @@ Successfully Loaded the songs into the DOM will proceed to adding some Event Lis
 Project Done now
 
 Will Be listing all New Discoveries made Here.
+
+Finally Added The Random Feature for Selecting Songs, Users can Select Songs Randomly
