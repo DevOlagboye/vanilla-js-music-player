@@ -17,12 +17,23 @@ const progress = document.querySelector(".progress");
 const progressContainer = document.querySelector(".progress-container");
 //Song Title
 const title = document.querySelector("#title");
+//Song Duration
+const songDuration = document.querySelector("#duration");
 //Song Image
 const cover = document.querySelector("#cover");
 
 //Song Titles in an Array, it must match the name of the songs stored in the music folder
 
-const songs = ["hey", "summer", "ukulele"];
+const songs = [
+    "hey",
+    "summer",
+    "ukulele",
+    "skeletun",
+    "sinner",
+    "high",
+    "bounce",
+    "understand",
+];
 
 //Keeping Tracks of the Songs
 //This means we have 3 songs in the array making it 0,1,2 it must be updated when songs are updated
@@ -49,7 +60,6 @@ let playSong = () => {
     musicContainer.classList.add("play");
     playBtn.querySelector("i.fas").classList.remove("fa-play");
     playBtn.querySelector("i.fas").classList.add("fa-pause");
-
     //Let's play the song with the audio tag API .play
     audio.play();
 };
